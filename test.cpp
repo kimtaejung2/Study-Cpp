@@ -1,7 +1,8 @@
 #include <iostream>
+#include <string>
 
 int main() {
-    std::cout << "20235150" << std::endl;
-    std::cout << "kimtaejeong" << std::endl;
+    int n = std::stoi("1234ab");
+    std::cout << n;
     return 0;
 }
