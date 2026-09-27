@@ -6,7 +6,14 @@
 #include <vector>
 using namespace std;
 
-void quiz_46();
+void quiz_46() {
+    int a;
+    double b;
+
+    cout << "정수와 실수 입력 > ";
+    cin >> a >> b;
+    cout << "합 : " << a + b << endl;
+}
 
 namespace A {
 int value = 10;
@@ -20,7 +27,17 @@ void quiz_47() {
     cout << "B::value: " << B::value << endl;
 }
 
-void quiz_48();
+void quiz_48() {
+    int d;
+    bool a, b;
+    cout << "정수 입력 > ";
+    cin >> d;
+
+    (d > 0) ? a = true : a = false;
+    (d % 2) ? b = false : b = true;
+    cout << "양수 여부 : " << boolalpha << a << endl
+         << "짝수 여부 : " << b;
+}
 
 void quiz_49() {
     enum class Menu {
@@ -100,15 +117,38 @@ void quiz_53() {
     printResult({3, 8, 2, 10, 5});
 }
 
-void quiz_54();
+void quiz_54() {
+    int n = 10;
+    cout << n;
+}
 
-void quiz_55();
+void quiz_55() {
+    int input;
+    cout << "정수 입력 : ";
+    cin >> input;
+}
 
-void quiz_56();
+void quiz_56() {
+    double number = 23.1987;
+    cout << "소수 둘째자리까지 출력: " << fixed << setprecision(2) << number;
+}
 
-void quiz_57();
+auto sum(int a, int b) {  // 함수의 매개변수, 초기화 없이 선언만 하는 경우에는 auto 사용 불가능.
+    int c = a + b;
+    return c;
+}
 
-void quiz_58();
+void quiz_57() {
+    cout << sum(5, 5) << endl;
+}
+
+void quiz_58() {
+    vector<int> v;
+    for (int i = 1; i < 5; i++) {
+        v.push_back(i);  // emplace_back이 성능이 더 좋음.
+    }
+    for (int j : v) cout << j << " ";
+}
 
 int main() {
 }
