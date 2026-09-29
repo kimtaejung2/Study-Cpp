@@ -67,6 +67,30 @@ void quiz_47() {
     cout << account.getBalance();
 }
 
+class Box {
+   private:
+    int width;
+    int height;
+    int depth;
+
+   public:
+    Box(int w, int h, int d) : width(w), height(h), depth(d) { cout << "Box 생성" << endl; }
+    Box() : Box(1, 1, 1) {}
+    ~Box() { cout << endl
+                  << "Box 소멸" << endl; }
+    int getVolume() const {
+        return width * height * depth;
+    }
+};
+
+void quiz_48() {
+    Box b1;
+    Box b2(2, 3, 4);
+
+    cout << b1.getVolume() << endl;
+    cout << b2.getVolume();
+}
+
 class Battery {
    private:
     int capacity;
@@ -96,16 +120,119 @@ void quiz_49() {
     Device phone("Phone", 5000);
 }
 
-void quiz_51() {
-    Product product("Keyboard", 30000, 5);
-    product.sell(2);
-    product.addStock(1);
-    if (!product.sell(10))
-        cout << "판매 실패" << '\n';
-    cout << product.getStock();
+class Book {
+   private:
+    string title;
+    bool borrowed;
+
+   public:
+    Book(string t, bool b) : title(t), borrowed(b) {}
+    Book(string t) : Book(t, false) {}
+    bool borrow() {
+        if (!borrowed) {
+            borrowed = true;
+            return true;
+        }
+        return false;
+    }
+    bool returnBook() {
+        if (borrowed) {
+            borrowed = false;
+            return true;
+        }
+        return false;
+    }
+    void print() const {
+        cout << title << ":";
+        if (borrowed)
+            cout << "대출 중" << endl;
+
+        else
+            cout << "대충 가능" << endl;
+    }
+};
+
+void quiz_50() {
+    Book book("C++ Programming");
+    if (book.borrow())
+        cout << "대출 성공" << endl;
+    if (!book.borrow())
+        cout << "대출 실패" << endl;
+    book.print();
+    book.returnBook();
+    book.print();
 }
 
+void quiz_51();  // Product.h Product.cpp Product_main.cpp
+
+class Sample {
+   public:
+    int number;
+};
+
+void quiz_52();  // Sample class
+
+class Car {
+   private:
+    string color;
+    int maxSpeed;
+
+   public:
+    Car();
+    Car(string c, int ms);
+};
+
+Car::Car() : Car("Black", 200) {};
+Car::Car(string c, int ms) : color{c}, maxSpeed{ms} {}
+void quiz_53() {
+    Car obj1("Red", 100);
+}
+
+class Circle {
+   private:
+    int radius;
+    double PI = 3.14;
+
+   public:
+    Circle(int r);
+    double getArea() const {}
+};
+
+Circle::Circle(int r) : radius{r} {}
+double Circle::getArea() const {
+    return radius * radius * PI;
+}
+
+void quiz_54();  // Circle class
+
+class Student {
+   private:
+    string name;
+    int id;
+
+   public:
+    Student(string name, int id);
+};
+
+Student::Student(string name, int id) : name{name}, id{id} {}
+
+void quiz_55();  // Student class
+
+class Triangle {
+   private:
+    int base;
+    int height;
+
+   public:
+    Triangle(int b, int h);
+    ~Triangle();
+};
+
+Triangle::Triangle(int b, int h) : base{b}, height{h} {}
+
+void quiz_56();  // Triangle class
+
 int main() {
-    quiz_51();
+    quiz_50();
     return 0;
 }
