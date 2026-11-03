@@ -45,13 +45,13 @@ class StudentA {
 
 void quiz_43() {
     int student;
-    cout << "학생 수를 입력하시오 > ";
+    cout << "?л? ???? ??????? > ";
     cin >> student;
 
     int score = 0;
     int sum = 0;
     double avg;
-    cout << "각 학생의 점수를 입력하시오 >";
+    cout << "?? ?л??? ?????? ??????? >";
     StudentA* stArr = new StudentA[student];
     for (int i = 0; i < student; i++) {
         cin >> score;
@@ -61,7 +61,7 @@ void quiz_43() {
         sum += (stArr + i)->getScore();
     }
     avg = sum / student;
-    cout << "학생들의 평균 점수 :" << avg;
+    cout << "?л????? ??? ???? :" << avg;
 
     delete[] stArr;
     stArr = nullptr;
@@ -112,7 +112,7 @@ void quiz_44() {
     cout << scores.getAverage();
 }
 
-// 메모리 반환 delete nullptr은 메모리가 할당된 곳에서 반환해야 한다.
+// ??? ??? delete nullptr?? ???? ???? ?????? ?????? ???.
 void quiz_45() {
     int* p = nullptr;
     for (int i = 1; i <= 3; i++) {
